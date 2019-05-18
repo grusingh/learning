@@ -147,3 +147,33 @@ function movieInfo(rating) {
 
 movieInfo(9)
 ```
+
+# Closure Samples
+
+```javascript
+const blender = ingredient => {
+  const modes = ['puree', 'juice']
+  let selectedMode = modes[0]
+  const blender = {
+    name: 'Hamilton Beach Blender 54210 40.0-oz Black 14-Speed 800.0-Watt Pulse Control',
+    brand: 'Hamilton',
+    manufactured: new Date('March 01, 2019 11:30:00'),
+    price: '$39.99'
+  }
+  return {
+    whichBlender() {
+      return console.log(`${'Name'.toUpperCase()}: ${blender.name}. ${'Company'.toUpperCase()}: ${blender.brand.toUpperCase()}. ${'Manufactured date'.toUpperCase()}: ${blender.manufactured.toLocaleDateString('en-CA')}.`)
+    },
+    startBlender() {
+      return console.log(`Blender mode selected: ${selectedMode.toUpperCase()}. Blender ingredient detected: ${ingredient.toUpperCase()}. Blender is running...`)
+    },
+    stopBlender() {
+      return console.log(`Blender has been stopped. Your ${ingredient.toUpperCase()} shake is ready.`)
+    }
+  }
+}
+
+blender().whichBlender()
+blender('strawberry').startBlender()
+blender('strawberry').stopBlender()
+```
